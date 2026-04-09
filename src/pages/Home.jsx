@@ -108,7 +108,7 @@ function Home() {
   // Fetch products from deployed backend
   useEffect(() => {
     axios
-      .get(`${BASE_URL}/api/products/`)
+      .get(`${BASE_URL}/products/`)
       .then((res) => {
         setProducts(res.data);
         setLoading(false);

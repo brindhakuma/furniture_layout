@@ -40,7 +40,7 @@ function Register() {
     }
 
     try {
-      const res = await axios.post('https://sydneyremo.pythonanywhere.com/api/register/', data);
+      const res = await axios.post('https://sydneyremo.pythonanywhere.com/register/', data);
 
       if (res.status === 201 || res.data.message === "User created") {
         alert("Registered Successfully");

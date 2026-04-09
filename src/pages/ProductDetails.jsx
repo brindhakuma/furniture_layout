@@ -14,7 +14,7 @@ function ProductDetails() {
       setProduct(location.state);
     } else {
       axios
-        .get(`https://sydneyremo.pythonanywhere.com/api/products/${id}/`)
+        .get(`https://sydneyremo.pythonanywhere.com/products/${id}/`)
         .then((res) => setProduct(res.data));
     }
   }, [id, location.state]);

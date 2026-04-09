@@ -150,7 +150,8 @@ function ProductDetails() {
         <p></p>
       </div>
       <div className="pdw-row">
-        <img src={imageUrl} alt={product.title} className="pdw-img" />
+        {/* <img src={imageUrl} alt={product.title} className="pdw-img" /> */}
+        <img src={`${BASE_URL}${product.image}`} alt={product.title} className="pdw-img" />
         <p>{product.title}</p>
         <p>₹{product.price}</p>
         <p>{new Date().toLocaleDateString()}</p>

@@ -14,7 +14,7 @@ function Whislist() {
       setProduct(location.state);
     } else {
       axios
-        .get(`http://127.0.0.1:8000/api/products/${id}/`)
+        .get(`https://sydneyremo.pythonanywhere.com/products/${id}/`)
         .then((res) => setProduct(res.data));
     }
   }, [id, location.state]);

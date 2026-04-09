@@ -59,7 +59,7 @@ function Login() {
 
         <div className="login-actions">
           <button onClick={handleSubmit}>Login</button>
-          <p>Forget your password?</p>
+          {/* <p>Forget your password?</p> */}
         </div>
 
         <div className="divider">

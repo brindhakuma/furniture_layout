@@ -77,7 +77,7 @@ function Login() {
 
         <p className="bottom-text">
           Don’t have an account?{" "}
-          <span onClick={() => navigate("/register")}>Create New Account</span>
+          <span onClick={() => navigate("/")}>Create New Account</span>
         </p>
       </div>
     </div>

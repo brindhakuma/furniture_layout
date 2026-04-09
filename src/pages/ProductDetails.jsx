@@ -15,10 +15,16 @@ function ProductDetails() {
     } else {
       axios
         .get(`https://sydneyremo.pythonanywhere.com/products/${id}/`)
-        .then((res) => setProduct(res.data));
-    }
-  }, [id, location.state]);
-
+  //       .then((res) => setProduct(res.data));
+  //   }
+  // }, [id, location.state]);
+            .then((res) => {
+        console.log("API Response:", res.data);
+        setProduct(res.data);
+      })
+      .catch(err => console.log("API Error:", err));
+  }
+}, [id, location.state]);
   if (!product) return <h2>Loading...</h2>;
 
   const addToCart = () => {

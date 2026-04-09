@@ -109,7 +109,7 @@ function ProductDetails() {
       setLoading(false);
     } else {
       axios
-        .get(`${BASE_URL}/api/products/${id}/`)
+        .get(`${BASE_URL}/products/${id}/`)
         .then((res) => {
           setProduct(res.data);
           setLoading(false);

@@ -90,7 +90,7 @@ import Whislist from "./pages/Whislist";
 // Wrap the app content in a separate component so we can use useLocation
 function AppContent() {
   const location = useLocation();
-  const hideNavbar = location.pathname === "/login" || location.pathname === "/register";
+  const hideNavbar = location.pathname === "/login" || location.pathname === "/";
 
   return (
     <>

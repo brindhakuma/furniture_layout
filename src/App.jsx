@@ -97,7 +97,8 @@ function AppContent() {
       {!hideNavbar && <Navbar />}
 
       <Routes>
-        <Route path="/" element={<Index />} />
+         <Route path="/" element={<Register />} />
+        <Route path="/index" element={<Index />} />
         <Route path="/home" element={<Home />} />
         <Route path="/product/:id" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
@@ -114,7 +115,7 @@ function AppContent() {
         <Route path="/invoice" element={<Invoice />} />
         <Route path="/tracking" element={<Tracking />} />
         <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
+        {/* <Route path="/register" element={<Register />} /> */}
         <Route path="/stars/:id" element={<Stars />} />
          <Route path="/whislist/:id" element={<Whislist />} />
       </Routes>

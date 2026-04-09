@@ -33,7 +33,7 @@ function    Payment() {
   const handlePayment = async () => {
     try {
 
-      const res = await fetch("http://127.0.0.1:8000/api/create-order/", {
+      const res = await fetch("https://sydneyremo.pythonanywhere.com/create-order/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"

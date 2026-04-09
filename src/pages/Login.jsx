@@ -28,7 +28,7 @@ function Login() {
 
       localStorage.setItem("token", res.data.access);
       alert(`Welcome ${res.data.message}`);
-      navigate("/");
+      navigate("/index");
     } catch (err) {
       if (err.response && err.response.status === 401) {
         alert("Invalid credentials");

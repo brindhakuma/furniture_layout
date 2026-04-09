@@ -24,7 +24,7 @@ function Login() {
     }
 
     try {
-      const res = await axios.post('https://sydneyremo.pythonanywhere.com/api/login/', data);
+      const res = await axios.post('https://sydneyremo.pythonanywhere.com/login/', data);
 
       localStorage.setItem("token", res.data.access);
       alert(`Welcome ${res.data.message}`);

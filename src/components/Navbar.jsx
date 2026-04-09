@@ -29,7 +29,7 @@ function Navbar() {
          </div>
 
          <div style={{gap :"35px",display: "flex"}}>
-        <Link to="/" style={{fontSize:"25px",color:"black",fontWeight:"550",textDecoration:"none"}}>Home</Link>
+        <Link to="/index" style={{fontSize:"25px",color:"black",fontWeight:"550",textDecoration:"none"}}>Home</Link>
         <Link to="/blogs" style={{fontSize:"25px",color:"black",fontWeight:"550",textDecoration:"none"}}>Blogs</Link>
 
         <Link to="/gallery" style={{fontSize:"25px",color:"black",fontWeight:"550",textDecoration:"none"}}>Gallery</Link>

@@ -18,7 +18,8 @@ body {
 }
 
 .tag {
-  background: linear-gradient(to right,orange,yellow);
+  /* background: linear-gradient(to right,orange,yellow); */
+  background: linear-gradient(to right,#FE7C09,#FFDD55);
   color: white;
   padding: 15px 10px;
   display: inline-block;

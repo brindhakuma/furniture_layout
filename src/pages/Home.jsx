@@ -153,7 +153,7 @@ function Home() {
               {/* Product Image */}
               <img
                 src={imageUrl}
-                onClick={() => navigate(`/product/${item.id}`, { state: item })}
+                onClick={() => navigate(`/stars/${item.id}`, { state: item })}
                 alt={item.title}
                 className="furn-img"
               />

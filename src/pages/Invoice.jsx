@@ -1,101 +1,327 @@
-import "./index.css";
-import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+// import "./index.css";
+// import { useEffect, useState } from "react";
+// import { useLocation } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-function Invoice() {
-    const [cart, setCart] = useState([]);
-    const navigate = useNavigate();
-    const location = useLocation();
-  useEffect(() => {
-    let data = JSON.parse(localStorage.getItem("cart")) || [];
+// function Invoice() {
+//     const [cart, setCart] = useState([]);
+//     const navigate = useNavigate();
+//     const location = useLocation();
+//   useEffect(() => {
+//     let data = JSON.parse(localStorage.getItem("cart")) || [];
 
-    // 👉 add quantity if not present
-    const updatedData = data.map(item => ({
-      ...item,
-      qty: item.qty || 1
-    }));
+//     // 👉 add quantity if not present
+//     const updatedData = data.map(item => ({
+//       ...item,
+//       qty: item.qty || 1
+//     }));
 
-    setCart(updatedData);
-  }, []);
+//     setCart(updatedData);
+//   }, []);
 
-  useEffect(() => {
-  if (location.state?.cartItems) {
-    setCart(location.state.cartItems);
-  }
-}, [location.state]);
+//   useEffect(() => {
+//   if (location.state?.cartItems) {
+//     setCart(location.state.cartItems);
+//   }
+// }, [location.state]);
 
-  const total = cart.reduce(
-    (sum, item) => sum + item.price * item.qty,
-    0
-      );
+//   const total = cart.reduce(
+//     (sum, item) => sum + item.price * item.qty,
+//     0
+//       );
 
-    return (
-    <div>
-        <h1 className="odd">Order Completed</h1>
-        <p className="odd">Thankyou,your order has been received</p>
-      <div className="upi">
-        <div className="receive">
-            <div>
-                <p>Order ID</p><br></br><p>#SD546DSVC65</p>
-            </div>
-            <div>
-                <p>Payment Method</p><br></br><p>UPI</p>
-            </div>
-            <div>
-                <p>Transaction ID</p><br></br><p>#SD546DSVC65</p>
-            </div>
-            <div>
-                <p>Estimate Delivery Date</p><br></br><p>20-04-2026</p>
-            </div>
-            <div>
-                <button onClick={() => navigate("/myorder")}>Download Invoice</button>
-            </div>
-        </div>
-        </div>
+//     return (
+//     <div>
+//         <h1 className="odd">Order Completed</h1>
+//         <p className="odd">Thankyou,your order has been received</p>
+//       <div className="upi">
+//         <div className="receive">
+//             <div>
+//                 <p>Order ID</p><br></br><p>#SD546DSVC65</p>
+//             </div>
+//             <div>
+//                 <p>Payment Method</p><br></br><p>UPI</p>
+//             </div>
+//             <div>
+//                 <p>Transaction ID</p><br></br><p>#SD546DSVC65</p>
+//             </div>
+//             <div>
+//                 <p>Estimate Delivery Date</p><br></br><p>20-04-2026</p>
+//             </div>
+//             <div>
+//                 <button onClick={() => navigate("/myorder")}>Download Invoice</button>
+//             </div>
+//         </div>
+//         </div>
 
        
 
-      <div className="upi">
-        <div>
-           <h2>Order Details</h2>
-        <h2>Products</h2>
-        <div className="elect">
-        <div className="drug">
-        {cart.map((item, i) => (
-            <div key={i} className="carts-row">
+//       <div className="upi">
+//         <div>
+//            <h2>Order Details</h2>
+//         <h2>Products</h2>
+//         <div className="elect">
+//         <div className="drug">
+//         {cart.map((item, i) => (
+//             <div key={i} className="carts-row">
 
-              <img src={item.image} alt="" className="cart-img" />
+//               <img src={item.image} alt="" className="cart-img" />
 
-              <p>{item.title}</p>
+//               <p>{item.title}</p>
 
-              {/* Subtotal */}
-              <p>₹{item.price * item.qty}</p>
+//               {/* Subtotal */}
+//               <p>₹{item.price * item.qty}</p>
 
               
+//             </div>
+//           ))}</div>
+//           </div>
+//           <div className="acts">
+//            <div className="summary-row">
+//             <span>Shipping</span>
+//             <span>₹0</span>
+//           </div>
+
+//           <div className="summary-row">
+//             <span>Taxes</span>
+//             <span>₹0</span>
+//           </div>
+
+//           <div className="summary-total">
+//             <strong>Total</strong>
+//             <strong>₹{total}</strong>
+//           </div>
+//           </div>
+//       </div>
+//       </div>
+//       </div>
+//     )
+// }
+
+//   export default Invoice;
+
+
+
+// import "./index.css";
+// import { useEffect, useState } from "react";
+// import { useLocation } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
+
+// function Invoice() {
+//     const [cart, setCart] = useState([]);
+//     const navigate = useNavigate();
+//     const location = useLocation();
+//     const order = location.state;
+//   // useEffect(() => {
+//   //   let data = JSON.parse(localStorage.getItem("cart")) || [];
+
+//   //   // 👉 add quantity if not present
+//   //   const updatedData = data.map(item => ({
+//   //     ...item,
+//   //     qty: item.qty || 1
+//   //   }));
+
+//   //   setCart(updatedData);
+//   // }, []);
+
+//   const cart = order?.cartItems || [];
+// const finalAmount = order?.amount || 0;
+// const discount = order?.discount || 0;
+
+  
+
+//   useEffect(() => {
+//   if (location.state?.cartItems) {
+//     setCart(location.state.cartItems);
+//   }
+// }, [location.state]);
+
+//   const total = cart.reduce(
+//     (sum, item) => sum + item.price * item.qty,
+//     0
+//       );
+  
+//   const handleDownloadInvoice = () => {
+//   window.print();
+//   navigate("/myorder"); // navigate after print
+// };
+//     return (
+//     <div>
+//         <h1 className="odd">Order Completed</h1>
+//         <p className="odd">Thankyou,your order has been received</p>
+//       <div className="upi">
+//         <div className="receive">
+//             <div>
+//                 <p>Order ID</p><br></br><p>#SD546DSVC65</p>
+//             </div>
+//             <div>
+//                 <p>Payment Method</p><br></br><p>UPI</p>
+//             </div>
+//             <div>
+//                 <p>Transaction ID</p><br></br><p>#SD546DSVC65</p>
+//             </div>
+//             <div>
+//                 <p>Estimate Delivery Date</p><br></br><p>20-04-2026</p>
+//             </div>
+//             <div>
+//                 <button onClick={handleDownloadInvoice}>Download Invoice</button>
+//             </div>
+//         </div>
+//         </div>
+
+       
+
+//       <div className="upi">
+//         <div>
+//            <h2>Order Details</h2>
+//         <h2>Products</h2>
+//         <div className="elect">
+//         <div className="drug">
+//         {cart.map((item, i) => (
+//             <div key={i} className="carts-row">
+
+//               <img src={item.image} alt="" className="cart-img" />
+
+//               <p>{item.title}</p>
+
+//               {/* Subtotal */}
+//               <p>₹{item.price * item.qty}</p>
+
+              
+//             </div>
+//           ))}</div>
+//           </div>
+//           <div className="acts">
+//            <div className="summary-row">
+//             <span>Shipping</span>
+//             <span>₹0</span>
+//           </div>
+
+//           <div className="summary-row">
+//             <span>Taxes</span>
+//             <span>₹0</span>
+//           </div>
+
+//           <div className="summary-row">
+//   <span>Discount</span>
+//   <span>-₹{discount}</span>
+// </div>
+
+//           <div className="summary-total">
+//             <strong>Total</strong>
+//             <strong>₹{finalAmount}</strong>
+//           </div>
+//           </div>
+//       </div>
+//       </div>
+//       </div>
+//     )
+// }
+
+//   export default Invoice;
+
+
+import "./index.css";
+import { useLocation, useNavigate } from "react-router-dom";
+
+function Invoice() {
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // ✅ Get order data
+  const order = location.state;
+
+  const cart = order?.cartItems || [];
+  const finalAmount = order?.amount || 0;
+  const discount = order?.discount || 0;
+
+  const handleDownloadInvoice = () => {
+    window.print();
+    navigate("/myorder");
+  };
+
+  return (
+    <div>
+      <h1 className="odd">Order Completed</h1>
+      <p className="odd">Thank you, your order has been received</p>
+
+      {/* Order Info */}
+      <div className="upi">
+        <div className="receive">
+          <div>
+            <p>Order ID</p>
+            <p>{order?.orderId}</p>
+          </div>
+
+          <div>
+            <p>Payment Method</p>
+            <p>UPI</p>
+          </div>
+
+          <div>
+            <p>Transaction ID</p>
+            <p>{order?.paymentId}</p>
+          </div>
+
+          <div>
+            <p>Estimate Delivery Date</p>
+            <p>20-04-2026</p>
+          </div>
+
+          <div>
+            <button onClick={handleDownloadInvoice}>
+              Download Invoice
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Order Details */}
+      <div className="upi">
+        <div>
+          <h2>Order Details</h2>
+          <h2>Products</h2>
+
+          <div className="elect">
+            <div className="drug">
+              {cart.map((item, i) => (
+                <div key={i} className="carts-row">
+                  <img src={item.image} alt="" className="cart-img" />
+                  <p>{item.title}</p>
+                  <p>₹{item.price * item.qty}</p>
+                </div>
+              ))}
             </div>
-          ))}</div>
           </div>
+
+          {/* Summary */}
           <div className="acts">
-           <div className="summary-row">
-            <span>Shipping</span>
-            <span>₹0</span>
-          </div>
+            <div className="summary-row">
+              <span>Shipping</span>
+              <span>₹0</span>
+            </div>
 
-          <div className="summary-row">
-            <span>Taxes</span>
-            <span>₹0</span>
-          </div>
+            <div className="summary-row">
+              <span>Taxes</span>
+              <span>₹0</span>
+            </div>
 
-          <div className="summary-total">
-            <strong>Total</strong>
-            <strong>₹{total}</strong>
+            {/* ✅ Discount */}
+            <div className="summary-row">
+              <span>Discount</span>
+              <span>-₹{discount}</span>
+            </div>
+
+            {/* ✅ Final Total */}
+            <div className="summary-total">
+              <strong>Total Paid</strong>
+              <strong>₹{finalAmount}</strong>
+            </div>
           </div>
-          </div>
+        </div>
       </div>
-      </div>
-      </div>
-    )
+    </div>
+  );
 }
 
-  export default Invoice;
+export default Invoice;
